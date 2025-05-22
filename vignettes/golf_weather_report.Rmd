@@ -1,0 +1,100 @@
+---
+title: "golf_weather_report"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{golf_weather_report}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+# The Golfer Package
+
+## Introduction
+
+This package allows you to view a map containing golf courses around Amsterdam.
+You can click on the markers on the map to view weather conditions at your chosen
+golf course, containing weather variables such as wind and humidity that impact 
+your golf game.
+
+In order to run the package, you'll need an OpenWeatherApp API key. 
+You can easily obtain one for free from [here](https://openweathermap.org/api)
+
+To start using, first load the package:
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(golfer)
+```
+
+## How it works
+
+This package uses two key functions:
+
+**1-** `weather_by_coords(lat, lon, api_key)`
+Retrieves live weather data from OpenWeatherMap based on coordinates. You can 
+see the following weather variables:
+
+- Temperature
+
+- Humidity
+
+- Pressure
+
+- Wind (Strength and Direction)
+
+- Cloudiness
+
+- Visibility
+
+- Overall Conditions
+
+**2-** `golf_map_weather(api_key)`
+Plots all golf courses on a leaflet map, attaching live weather data to each 
+marker.
+
+Here is the example usage for both:
+
+```{r example_usage, eval = FALSE}
+# Example usage
+weather_by_coords(52.37, 4.89, api_key = "your_api_key")
+golf_map_weather(api_key = "your_api_key")
+```
+
+## The Shiny App
+
+The Shiny app for the Golfer package is the main feature of the project.
+You can access the app by running this function:
+
+```{r, eval = FALSE} 
+start_golf_app()
+```
+
+You will see a pop-up requesting your OpenWeatherApp API Key. Remember, the
+app will not work unless you have a valid API! It will look like this:
+
+<img src="Vignette Screenshots/shiny_one.png" width="600"/>
+
+Enter your API key. *Voila!* You will see the golf map pop up, as shown below:
+
+<img src="Vignette Screenshots/shiny_two.png" width="600"/>
+
+You can click any of the markers on the map to view current weather conditions
+at any golf course featured on the map:
+
+<img src="Vignette Screenshots/shiny_three.png" width="600"/>
+
+## Notes
+
+If faced with an error, please check that you are connected to the internet and
+that your API key is valid.
+
+## Conclusion
+
+The golfer package is for the spontaneous Amsterdam golfer that wants to choose
+the course they play on based on the weather conditions. Players can leverage 
+these variables by adjusting their play to the conditions of the day. Golf away!

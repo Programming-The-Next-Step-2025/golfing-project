@@ -13,5 +13,7 @@ golf_map_weather(api_key)
 Show golf courses with weather info on a map
 }
 \examples{
+\dontrun{
 golf_map_weather(api_key = "your_api_key_here")
+}
 }
