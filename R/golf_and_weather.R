@@ -1,5 +1,3 @@
-# Install required packages if not already installed
-# install.packages(c("leaflet", "httr"))
 
 #' Get current weather by coordinates
 #'
@@ -10,6 +8,10 @@
 #' @return Weather information of entered location.
 #' @export
 #' @importFrom httr GET content status_code
+#' @examples
+#' \dontrun{
+#' weather_by_coords(52.36409891117978, 4.911415030689269, "api_key_here")
+#' }
 weather_by_coords <- function(lat, lon, api_key) {
   url <- paste0("https://api.openweathermap.org/data/2.5/weather?lat=",
                 lat, "&lon=", lon, "&appid=", api_key, "&units=metric")
@@ -59,7 +61,9 @@ weather_by_coords <- function(lat, lon, api_key) {
 #' @export
 #' @importFrom leaflet leaflet addTiles addMarkers
 #' @examples
+#' \dontrun{
 #' golf_map_weather(api_key = "your_api_key_here")
+#' }
 golf_map_weather <- function(api_key) {
   courses <- data.frame(
     name = c("Golfbaan Sloten", "Amsterdam Old Course", "Golfclub Ookmeer",
@@ -88,6 +92,41 @@ golf_map_weather <- function(api_key) {
     )
 }
 
+# Shiny App---------------------------------------------------------------------
 
+#UI
+#' @importFrom shiny fluidPage titlePanel sidebarLayout sidebarPanel textInput mainPanel shinyApp req
+#' @importFrom leaflet leafletOutput renderLeaflet
+ui <- fluidPage(
+  titlePanel("Golf Courses Around Amsterdam with Current Weather"),
+  sidebarLayout(
+    sidebarPanel(
+      textInput("api_key", "Enter your OpenWeatherMap API Key:", "")
+    ),
+    mainPanel(
+      leafletOutput("golfMap", height = 600)
+    )
+  )
+)
+
+# Server
+server <- function(input, output, session) {
+  output$golfMap <- renderLeaflet({
+    req(input$api_key)
+    golf_map_weather(input$api_key)
+  })
+}
+
+# Run the app
+#' Run the golf app
+#'
+#' @return A shiny popup of the Golf App; no arguments required
+#' @export
+#'
+#' @examples
+#' start_golf_app()
+start_golf_app <- function() {
+  shinyApp(ui, server)
+}
 
 

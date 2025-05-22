@@ -19,3 +19,8 @@ Weather information of entered location.
 \description{
 Get current weather by coordinates
 }
+\examples{
+\dontrun{
+weather_by_coords(52.36409891117978, 4.911415030689269, "api_key_here")
+}
+}
