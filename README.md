@@ -2,6 +2,8 @@
 
 This package is about golf!
 
+Please read the vignette to read more about how to use the package.
+
 There are numerous golf courses across the Netherlands, all of which experience
 varying weather conditions. These conditions are very important to understand for
 golfers. For example, knowing the strength and direction of the wind on a
