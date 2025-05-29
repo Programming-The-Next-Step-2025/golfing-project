@@ -1,12 +1,11 @@
 Package: golfer
 Type: Package
-Title: What the Package Does (Title Case)
+Title: A map with golf courses in Amsterdam that shows the user live weather
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Verda Pinar
+Maintainer: The package maintainer <verda.pinar@student.uva.nl>
+Description: Users can click on golf courses on a map to see the live weather
+License: UvA
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.2
