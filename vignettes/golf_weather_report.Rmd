@@ -36,8 +36,9 @@ library(golfer)
 This package uses two key functions:
 
 **1-** `weather_by_coords(lat, lon, api_key)`
-Retrieves live weather data from OpenWeatherMap based on coordinates. You can 
-see the following weather variables:
+Retrieves live weather data from OpenWeatherMap based on coordinates. 
+You must enter your location's latitude and longitude, followed by your API key.
+You can see the following weather variables:
 
 - Temperature
 
@@ -55,7 +56,7 @@ see the following weather variables:
 
 **2-** `golf_map_weather(api_key)`
 Plots all golf courses on a leaflet map, attaching live weather data to each 
-marker.
+marker. For this one, you only need to enter your API key.
 
 Here is the example usage for both:
 
@@ -68,7 +69,8 @@ golf_map_weather(api_key = "your_api_key")
 ## The Shiny App
 
 The Shiny app for the Golfer package is the main feature of the project.
-You can access the app by running this function:
+This combines the two functions introduced above in an app.
+You can run the app by running this function:
 
 ```{r, eval = FALSE} 
 start_golf_app()
