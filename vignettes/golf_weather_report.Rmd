@@ -1,10 +1,10 @@
 ---
 title: "golf_weather_report"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{golf_weather_report}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+output:
+  html_document: default
+  pdf_document: default
+vignette: "%\\VignetteIndexEntry{golf_weather_report} %\\VignetteEngine{knitr::rmarkdown}
+  %\\VignetteEncoding{UTF-8}\n"
 ---
 # The Golfer Package
 
